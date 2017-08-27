@@ -1,8 +1,6 @@
 'use strict'
 
-const sh = require('kool-shell')()
-  .use(require('kool-shell/plugins/input'))
-  .use(require('kool-shell/plugins/log'))
+const sh = require('../utils/sh-basic')
 
 const DEFAULT_VERSION = '0.0.1'
 const REGEX = /^((\w{1}|[1-9]{1}\w+)\.){2}(\w{1}|[1-9]{1}\w+)$/g

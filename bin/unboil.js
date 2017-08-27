@@ -1,27 +1,34 @@
 #!/usr/bin/env node
 
+'use strict'
+
 const waterfall = require('run-waterfall')
 
 waterfall(
   [
-    require('./steps/welcome'),
+    require('./steps/log-welcome'),
+
+    require('./steps/log-newline'),
 
     require('./steps/prompt-name'),
     require('./steps/prompt-version'),
     require('./steps/prompt-description'),
     require('./steps/prompt-author'),
     require('./steps/prompt-license'),
-    require('./steps/prompt-git-repository'),
+    require('./steps/prompt-private'),
+    require('./steps/prompt-readme'),
+    require('./steps/prompt-git'),
+    require('./steps/prompt-git-origin'),
 
-    require('./tasks/update-package'),
+    require('./steps/log-newline'),
 
-    require('./steps/prompt-clear-git'),
-    require('./steps/prompt-clear-readme'),
-
-    require('./tasks/clear-git'),
-    require('./tasks/clear-readme')
+    require('./steps/update-packagejson'),
+    require('./steps/update-license'),
+    require('./steps/update-readme'),
+    require('./steps/update-changelog'),
+    require('./steps/update-git'),
   ],
   (err, state) => err
-    ? require('./steps/error')(err, state)
-    : require('./steps/success')(err, state)
+    ? require('./steps/log-error')(err, state)
+    : require('./steps/log-success')(err, state)
 )
