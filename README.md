@@ -24,12 +24,13 @@
 <br>
 
 ## Features
-- Update existing `package.json`
+- Fancy CLI interface to generate a new project from a boilerplate
+- Update & customize existing `package.json`
+- Update existing `LICENSE` accordingly to the updated package.json, create it if none
 - Update existing `README`, create it if none
-- Update existing `LICENSE`, create it if none
-- Update or clear existing `.git`
-- Support for `README` template
-- Support for `LICENSE` template
+- Clear existing `.git`
+- Quickly re-init the git folder and add your git remote repository
+- Minimal module: only 4 dependencies
 
 ## Installation
 ```sh
